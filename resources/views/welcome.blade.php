@@ -22,6 +22,8 @@
                 <li><a href="{{ route('factories.index') }}">Home</a></li>
                 <li><a href="{{ route('factories.create') }}">Create Factory</a></li>
 
+
+
             </ul>
         </nav>
     </header>

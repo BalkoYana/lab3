@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Factory;
+
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class FactoryController extends Controller
         if (!Gate::allows('factories-basic')) {
             return redirect()->route('login');
         }
+
         $factory = Factory::all();
         return view('factory.index',[
             'factory'=>$factory
@@ -26,11 +28,13 @@ class FactoryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
     public function create()
     {
         if (!Gate::allows('factories-basic')) {
             return redirect()->route('login');
         }
+
         return view('factory.create');
     }
 
@@ -47,7 +51,9 @@ class FactoryController extends Controller
     /**
      * Display the specified resource.
      */
+
     public function show(Factory $factory)
+
     {
         return view('factory.show', ['factory' => $factory]);
     }
@@ -57,6 +63,7 @@ class FactoryController extends Controller
      */
     public function edit(Factory $factory)
     {
+
         $user = Auth::user();
 
         $is_super_admin = $user->role === 'super_admin';
@@ -64,6 +71,7 @@ class FactoryController extends Controller
 
 
         return view('factory.edit', ['factory' => $factory, 'is_super_admin' => $is_super_admin, 'can_update' => $can_update]);
+
     }
 
     /**
@@ -71,9 +79,11 @@ class FactoryController extends Controller
      */
     public function update(Request $request, Factory $factory):RedirectResponse
     {
+
         if (!Gate::allows('update-factories', [$factory])) {
             abort(403, 'Unauthorized');
         }
+
 
         $data=$request->only(['code','name','number','branch','address']);
         $factory->update($data);
@@ -86,6 +96,7 @@ class FactoryController extends Controller
 
     public function destroy(Factory $factory):RedirectResponse
     {
+
         if (!Gate::allows('delete-factories')) {
             abort(403, 'Unauthorized');
         }

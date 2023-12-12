@@ -1,5 +1,6 @@
 <a href="{{route('factories.create')}}">Create</a><br/>
 <table border="1">
+
     @foreach($factory as $item)
         <tr>
             <td>{{$item->id}}</td>
@@ -14,4 +15,5 @@
             </td>
         </tr>
     @endforeach
+
 </table>
