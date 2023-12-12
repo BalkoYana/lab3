@@ -22,9 +22,7 @@
                 <li><a href="{{ route('factories.index') }}">Home</a></li>
                 <li><a href="{{ route('factories.create') }}">Create Factory</a></li>
 
-                <li><a href="{{ route('factories.show', ['factories.id'])}}">Show</a></li>
 
-                <li><a href="{{ route('factories.edit',  ['factories.id']) }}">Edit</a></li>
 
             </ul>
         </nav>

@@ -12,7 +12,10 @@ class Factory extends Model
         'name',
         'number',
         'branch',
-        'address'
+
+        'address',
+        'role'
+
     ];
     use HasFactory;
 }
