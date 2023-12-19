@@ -43,7 +43,7 @@ class FactoryController extends Controller
      */
     public function store(Request $request):RedirectResponse
     {
-        $data=$request->only(['code','name','number','branch','address']);
+       $data=$request->validate(['code'=>'required|max:16','name' => 'required|max:255','number'=>'required|max:30','branch' => 'required|max:255','address' => 'required|max:255']);
         Factory::create($data);
         return redirect((route('factories.index')));
     }
