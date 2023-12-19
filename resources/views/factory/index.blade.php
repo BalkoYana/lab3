@@ -1,3 +1,4 @@
+
 @vite('resources/css/app.css')
 
 <a href="{{route('factories.create')}}" class="inline-block bg-blue-500 hover:bg-blue-700  font-bold py-2 px-4 rounded mb-4">Create</a>
@@ -21,5 +22,6 @@
         @endforeach
     </table>
 </div>
+
 
 
